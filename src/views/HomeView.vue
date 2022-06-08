@@ -1,18 +1,31 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js App" />
+    <AutoComplete msg="Welcome to Your Vue.js App" />
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
-import HelloWorld from "@/components/HelloWorld.vue";
+import AutoComplete from "@/components/AutoComplete.vue";
+import { mapGetters, mapActions } from "vuex";
 
 export default {
   name: "HomeView",
   components: {
-    HelloWorld,
+    AutoComplete,
+  },
+  computed: {
+    ...mapGetters(["hintData"]),
+  },
+  methods: {
+    ...mapActions(["fetchHintData"]),
+    async getHintData() {
+      await this.fetchHintData();
+      await console.log("hintData:", this.hintData);
+    },
+  },
+  created() {
+    this.getHintData();
   },
 };
 </script>
