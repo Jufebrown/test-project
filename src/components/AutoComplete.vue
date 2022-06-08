@@ -21,6 +21,11 @@ import { mapGetters } from "vuex";
 
 export default {
   name: "AutoComplete",
+  data() {
+    return {
+      nameInput: "",
+    };
+  },
   computed: {
     ...mapGetters(["nameList"]),
   },
