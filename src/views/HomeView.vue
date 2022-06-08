@@ -29,3 +29,13 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+.home {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+</style>
