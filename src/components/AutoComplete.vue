@@ -1,7 +1,15 @@
 <template>
-  <div class="hello">
+  <div class="autocomplete-container">
     <label for="name-input">Name:</label>
-    <input id="name-input" type="text" />
+    <b-form-input
+      id="name-input"
+      type="text"
+      :value="nameInput"
+      list="auto-complete-list"
+    />
+    <datalist id="auto-complete-list">
+      <option v-for="name in nameList" :value="name" :key="name"></option>
+    </datalist>
     <div>
       <ul></ul>
     </div>
